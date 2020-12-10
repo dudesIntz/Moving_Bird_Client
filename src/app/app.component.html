@@ -1,39 +1,33 @@
-<div class="container">
-  <div class="mobile"></div>
-  <div class="login-container">
-    <form action="#">
-      <div class="form-container">
-      <div class="signCon">
-        <div class="signIn">
-          <a href="#" class="left ">SIGN IN</a>
+<div class="container-fluid bg">
+  <div class="row justify-content-end">
+    <div class="col-12 col-sm-6 col-lg-4">
+      
+      <form class="form-container">
+        <div class="btn-group btn-group-lg btn-margin" style="width:100%">
+          <button type="button" class="btn signinBtn">SIGN IN</button>
+          <button type="button" class="btn signupBtn">SIGN UP</button>
         </div>
-        <div class="signOut">
-          <a href="#" class="right">SIGN UP</a>
-        </div>
-      </div>
-        <p class="signtext">USER SIGN IN</p>
-        <div class="input-div one focus">
-          <div class="i">
+        <p class="loginText">USER SIGN IN</p>
+        <div class="form-group nomargin formGrp user">
+          <div class="icon">
             <i class="fas fa-user"></i>
           </div>
           <div>
-            <h5>User Name</h5>
-            <input class="input" type="text">
+            <input type="user" class="form-control userBox" id="user"  placeholder="Enter name">
           </div>
         </div>
-        <div class="input-div two">
-          <div class="i">
+        <div class="form-group nomargin formGrp password">
+          <div class="icon">
             <i class="fas fa-lock"></i>
           </div>
           <div>
-            <h5>Password</h5>
-            <input class="input" type="password">
-          </div>
+            <input type="password" class="form-control passwordBox" id="" placeholder="Password">
+          </div>  
         </div>
-        <a href="#" class="btn">PROCEED &rarr;</a>
+        <button type="submit" class="btn loginBtn btn-block">Submit <span>&rarr;</span></button>
         <hr>
-        <a class="fpw" href="#"> Forgot Password?</a>
-      </div>
-    </form>
+				<a class="fpw" href="#"> Forgot Password?</a>
+      </form>
+    </div>
   </div>
 </div>
