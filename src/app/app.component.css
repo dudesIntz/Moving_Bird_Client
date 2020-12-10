@@ -15,11 +15,8 @@
 }
 .form-container{
     background: #343a402b;
-    padding:30px;
+     padding:30px;
     border-radius:10px;
-    width:65%;
-    margin: 0 auto;
-    margin-top: 24%;
 }
 .signinBtn{
     background: #76d8ca;
@@ -54,7 +51,8 @@
     font-weight: 500;
     color: white;
     text-transform: uppercase;
-    margin: 16% 0;
+    margin-top:15px;
+    /* margin: 16% 0; */
     transition: .5s;
 }
 .loginBtn:hover{
@@ -114,7 +112,7 @@ text-decoration: none;
 color: #333;
 font-size: 0.9rem;
 transition: .3s;
-margin-top: 2rem;
+padding:15px;
 }
 .fpw:hover{
 color:#38d39f
