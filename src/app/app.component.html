@@ -1,33 +1,83 @@
-<div class="container-fluid bg">
-  <div class="row justify-content-end align-items-center h-100">
-    <div class="col-12 col-sm-6 col-lg-4">
-      
-      <form class="form-container">
-        <div class="btn-group btn-group-lg btn-margin" style="width:100%">
-          <button type="button" class="btn signinBtn">SIGN IN</button>
-          <button type="button" class="btn signupBtn">SIGN UP</button>
+<div class="container1" [ngClass]="{'sign-up-mode':isSlected}">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" class="sign-in-form">
+            <button class="btn transparent signupBtn">
+                Sign in
+              </button>
+              
+              <div class="form-group nomargin formGrp user">
+                <div class="icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div>
+                  <input type="user" class="form-control userBox" id="user"  placeholder="Enter name">
+                </div>
+              </div>
+              <div class="form-group nomargin formGrp password">
+                <div class="icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div>
+                  <input type="password" class="form-control passwordBox" id="" placeholder="Password">
+                </div>  
+              </div>
+              <button type="submit" class="btn loginBtn btn-block">Submit <span>&rarr;</span></button>
+              <hr>
+                      <a class="fpw" href="#"> Forgot Password?</a>
+        </form>
+        <form action="#" class="sign-up-form">
+            <button class="btn transparent signupBtn" >
+                Sign out
+              </button>
+              <div class="form-group nomargin formGrp user">
+                <div class="icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div>
+                  <input type="user" class="form-control userBox" id="user"  placeholder="Enter name">
+                </div>
+              </div>
+             
+              <div class="form-group nomargin formGrp password">
+                <div class="icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div>
+                  <input type="password" class="form-control passwordBox" id="" placeholder="Password">
+                </div>  
+              </div>
+              <button type="submit" class="btn loginBtn btn-block">Submit <span>&rarr;</span></button>
+              <hr>
+                      <a class="fpw" href="#"> Forgot Password?</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New here ?</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+          </p>
+          <button class="btn transparent signupBtn" id="sign-up-btn" (click) ="ani()">
+            Sign up
+          </button>
         </div>
-        <p class="loginText">USER SIGN IN</p>
-        <div class="form-group nomargin formGrp user">
-          <div class="icon">
-            <i class="fas fa-user"></i>
-          </div>
-          <div>
-            <input type="user" class="form-control userBox" id="user"  placeholder="Enter name">
-          </div>
+        <img src="../assets/register.svg" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>One of us ?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          </p>
+          <button class="btn transparent signupBtn" id="sign-in-btn" (click) ="ani1()">
+            Sign in
+          </button>
         </div>
-        <div class="form-group nomargin formGrp password">
-          <div class="icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <div>
-            <input type="password" class="form-control passwordBox" id="" placeholder="Password">
-          </div>  
-        </div>
-        <button type="submit" class="btn loginBtn btn-block">Submit <span>&rarr;</span></button>
-        <hr>
-				<a class="fpw" href="#"> Forgot Password?</a>
-      </form>
+        <img src="../assets/logo.svg" class="image" alt="" />
+      </div>
     </div>
   </div>
-</div>

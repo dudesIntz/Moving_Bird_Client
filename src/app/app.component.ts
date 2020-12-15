@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LearningApp';
+  isSlected:boolean =true;
+  constructor(){
+
+  }
+  ani(){
+    this.isSlected = true;
+    console.log(this.isSlected);
+  }
+  ani1(){
+    this.isSlected = false;
+    console.log(this.isSlected);
+  }
 }
