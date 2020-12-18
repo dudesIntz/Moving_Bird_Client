@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LearningApp"
+    }
+  },
+  "defaultProject": "LearningApp",
+  "cli": {
+    "analytics": "7b22bffd-b4a1-4493-bbb0-231bf006cf41"
+  }
 }

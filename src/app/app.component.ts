@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LearningApp';
-  isSlected:boolean =true;
-  constructor(){
+ 
+  constructor(private router:Router, private route:ActivatedRoute){
 
   }
-  ani(){
-    this.isSlected = true;
-    console.log(this.isSlected);
-  }
-  ani1(){
-    this.isSlected = false;
-    console.log(this.isSlected);
+  navi(){
+    //this.router.navigate(['/contact'])
   }
 }
