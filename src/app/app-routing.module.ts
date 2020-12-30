@@ -4,13 +4,14 @@ import { HomeComponent } from '../app/pages/home/home.component';
 import { ContactComponent } from '../app/pages/contact/contact.component';
 import { GalleryComponent } from '../app/pages/gallery/gallery.component';
 import { SignInOutComponent } from './pages/sign-in-out/sign-in-out.component';
-import { AuthGuard } from './auth-guard.service';
+import {AuthGuard} from './auth/auth-guard.service';
 import { RoleGuard } from './role-guard.service';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
     {
         path:"", 
-        component: HomeComponent},
+        component: SignInOutComponent},
     {
         path:"contact/:id/:name", 
         canActivate: [RoleGuard], 
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
     },
     {
         path:"gallery", 
-        canActivate: [AuthGuard], 
+       // canActivate: [AuthGuard],
         component: GalleryComponent},
     {
         path:"signInOut", 
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
 ]
 @NgModule({
     imports:[
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        FormsModule
     ],
     exports:[
         RouterModule
