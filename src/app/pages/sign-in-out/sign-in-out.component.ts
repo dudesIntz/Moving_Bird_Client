@@ -1,7 +1,7 @@
 import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService, AuthResponseData } from '../../auth/auth.service';
+import { AuthService, AuthResponseData, AuthResponseLoginData } from '../../auth/auth.service';
 import {Observable} from 'rxjs';
 import {
   Router
@@ -35,16 +35,17 @@ export class SignInOutComponent implements OnInit {
     this.isLoading = true;
     const email = form.value.email;
     const password = form.value.password;
-    let authObs: Observable<AuthResponseData>;
+    let authSignUpObs: Observable<AuthResponseData>;
+    let authObs: Observable<AuthResponseLoginData>;
 
     if(this.isLoginMode){
         console.log("login mode");
-        authObs = this.authService.login(email, password);
+        authObs = this.authService.signIn(email, password);
         form.reset();
     }
     else{
       console.log("sign in mode");
-      authObs = this.authService.signup(email, password);
+      authSignUpObs = this.authService.signup(email, password);
       form.reset();
     } 
 
@@ -54,7 +55,7 @@ export class SignInOutComponent implements OnInit {
         this.isLoading = false;
         this.error ='';
         this.isLoginMode = true;
-        if(resData.registered){
+        if(resData.token){
           this.router.navigate(['/gallery']);
         }
         

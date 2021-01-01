@@ -9,6 +9,7 @@ import {
     RouterStateSnapshot,
     Router
   } from '@angular/router';
+import { environment } from "src/environments/environment";
 
 export interface AuthResponseData {
     idToken : string,
@@ -17,6 +18,14 @@ export interface AuthResponseData {
     expiresIn : string,
     localId : string,
     registered? : boolean
+}
+
+//selva local server
+
+
+export interface AuthResponseLoginData {
+    token : string,
+    user:Object
 }
 
 @Injectable({
@@ -55,6 +64,19 @@ export class AuthService {
         )
         .pipe(catchError(this.handleError), tap(resData =>{
             this.handleAuthendication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
+          
+        }));
+    }
+
+    signIn(email: string, password: string){
+        return this.http.post<AuthResponseLoginData>(environment.apiEndPoint + '/login',
+        {
+            email: email,
+            password:  password,
+        }
+        )
+        .pipe(catchError(this.handleError), tap(resData =>{
+            this.handleSignIn(resData.token,resData.user );
           
         }));
     }
@@ -105,6 +127,13 @@ export class AuthService {
 
     }
 
+    private handleSignIn(token: string, user: Object){
+        
+        localStorage.setItem('userItem', JSON.stringify(user));
+       // this.autoLogout(expiresIn * 1000);
+
+    }
+
     private handleAuthendication(email: string, userId: string, token: string, expiresIn: number){
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
         const user = new User(email, userId, token, expirationDate);
@@ -116,26 +145,39 @@ export class AuthService {
 
     private handleError(errorRes: HttpErrorResponse){
         console.log("mageswari", errorRes);
-                let errorMsg = "An unknow error occured!";
-                if(!errorRes.error || !errorRes.error.error){
-                    return throwError(errorMsg);
+                let error = errorRes.error.errors
+                let errorMsg:any = "An unknown error occured!";
+
+                //local server error handler
+                if(error && Array.isArray(error.msg)){
+                   errorMsg = error.msg.map(val=> `${val.msg} \n`)
+                }else if(error && error.msg){
+                   errorMsg = `${error.msg}`
                 }
-                switch(errorRes.error.error.message){
-                    case 'INVALID_EMAIL':
-                    errorMsg = 'Invalid Email';
-                    break;
-                    case 'EMAIL_EXISTS':
-                    errorMsg = 'This email already exit';
-                    break;
-                    case 'WEAK_PASSWORD : Password should be at least 6 characters':
-                    errorMsg = 'Password should be at least 6 characters';
-                    case 'EMAIL_NOT_FOUND':
-                    errorMsg = 'email not found';
-                    break;
-                    case 'INVALID_PASSWORD':
-                    errorMsg = 'invalid password';
-                    break;
-                }
+
+
+
+                //firebase error handler
+
+                // if(!errorRes.error || !errorRes.error.error){
+                //     return throwError(errorMsg);
+                // }
+                // switch(errorRes.error.error.message){
+                //     case 'INVALID_EMAIL':
+                //     errorMsg = 'Invalid Email';
+                //     break;
+                //     case 'EMAIL_EXISTS':
+                //     errorMsg = 'This email already exit';
+                //     break;
+                //     case 'WEAK_PASSWORD : Password should be at least 6 characters':
+                //     errorMsg = 'Password should be at least 6 characters';
+                //     case 'EMAIL_NOT_FOUND':
+                //     errorMsg = 'email not found';
+                //     break;
+                //     case 'INVALID_PASSWORD':
+                //     errorMsg = 'invalid password';
+                //     break;
+                // }
                 return throwError(errorMsg); 
     }
 
