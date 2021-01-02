@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
+    "build:git": "ng build --prod --base-href https://dudesIntz.github.io/Moving_Bird_Client/",
+    "deploy:git": "ngh -no-silent",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
