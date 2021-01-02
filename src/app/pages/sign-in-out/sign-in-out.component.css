@@ -27,12 +27,12 @@ input {
   top: 54%;
   transform: translate(-50%, -50%);
   left: 75%;
-  width: 27%;
+  width: 300px;
   transition: 1s 0.7s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
   z-index: 5;
-  height: 62%;
+  height: 82%;
 }
 form {
     position: relative;
@@ -45,8 +45,107 @@ form {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     padding: 2rem;
-    background: #1d1b1b14;
   }
+  .formGrp{
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+    margin: 2px;
+  }
+  .formGrp:before{
+    right: 50%;
+
+  }
+  .icon{
+    color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icon i{
+    transition: .3s;
+  }
+  .formGrp:before, .formGrp:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #38d39f;
+    transition: .4s;
+}
+.formGrp:before{
+	right: 50%;
+}
+
+.formGrp:after{
+	left: 50%;
+}
+
+.formGrp.focus:before, .formGrp.focus:after{
+	width: 50%;
+}
+.formGrp > div {
+  position: relative;
+  height: 35px;
+}
+.formGrp.focus > .icon > i {
+  color: #38d39f;
+}
+.formGrp.focus > div > h5 {
+  position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+.formGrp > div > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  color: #555;
+  font-size: 12px;
+  font-family: 'poppins', sans-serif;
+}
+.formGrp > div > input:focus{
+  box-shadow: none;
+}
+.signInBtn, .logInBtn{
+  display:block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.signInBtn:hover{
+	background-position: right;
+}
 form.sign-up-form {
     opacity: 0;
     z-index: 1;
@@ -74,7 +173,7 @@ form.sign-up-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #40c4c7 0%, #86d3c2 100%);
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -146,27 +245,13 @@ form.sign-up-form {
 .signinBtn{
    
 }
-.signupBtn {
+.switchBtn {
     margin-bottom: 30px;
     background-image: linear-gradient(to right, rgba(40, 191, 196, .9), rgb(128 210 195));
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
     color: white;
 }
-.loginBtn{
-    display: block;
-    width: 100%;
-    border-radius: 13px;
-    background-image: linear-gradient(to right, rgba(40, 191, 196, .9), rgb(128 210 195));
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: white;
-    text-transform: uppercase;
-    margin-top:23px;
-    /* margin: 16% 0; */
-    transition: .5s;
-    padding: 5px;
-}
+
 .loginBtn:hover{
 transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
@@ -180,61 +265,11 @@ transform: translateY(-3px);
   background-color: none;
 }
 
-.btn-margin{
-}
-.nomargin{
-    margin:0 !important;
-}
-.formGrp{
-    position: relative;
-    display: grid;
-    grid-template-columns: 15% 85%;
-    background: white;
-    width: 100%;
-    padding: 5px;
-}
-.userBox, .passwordBox{
-    border: none;
-    margin-left: 12px;
-}
-.icon{
-    color: #27bfc4;
-    align-self: center;
-    /* align-items: center; */
-    text-align: center;
+.fpw{
+  color: #999;
 }
 
-.loginText{
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #212529ad;
-    margin: 6% 0 8% 0;
-}
-.userBox, .passwordBox{
-    box-shadow: none !important;
-    width: 95%;
-}
-.formGrp.user{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 1px solid #000000a1;
-}
-.formGrp.password{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.fpw {
-    display: block;
-text-align: center;
-text-decoration: none;
-color: #333;
-font-size: 0.9rem;
-transition: .3s;
-}
-.fpw:hover{
-color:#38d39f
-}
+
 
 /* ANIMATION */
 
@@ -305,10 +340,10 @@ color:#38d39f
     }
     .signin-signup {
       width: 100%;
-      top: 95%;
+      top: 98%;
       transform: translate(-50%, -100%);
       transition: 1s 0.8s ease-in-out;
-      padding: 2rem;
+      padding: 0.5rem 2rem;
     }
   
     .signin-signup,
@@ -354,10 +389,11 @@ color:#38d39f
     .panel p {
       font-size: 0.7rem;
       padding: 0.5rem 0;
+      margin-bottom: 0;
     }
   
     .btn.transparent {
-      width: 110px;
+      width: 118px;
       height: 35px;
       font-size: 0.7rem;
     }
@@ -366,8 +402,8 @@ color:#38d39f
       width: 1500px;
       height: 1500px;
       transform: translateX(-50%);
-      left: 30%;
-      bottom: 68%;
+      left: 44%;
+    bottom: 82%;
       right: initial;
       top: initial;
       transition: 2s ease-in-out;
@@ -393,10 +429,18 @@ color:#38d39f
     .right-panel .content {
       transform: translateY(300px);
     }
+    .left-panel .image,
+    .left-panel .content {
+      transform: translateY(-58px);
+    }
+  
   
     .container1.sign-up-mode .signin-signup {
       top: 5%;
       transform: translate(-50%, 0);
+    }
+    form{
+      padding: 4rem;
     }
   }
  
@@ -404,17 +448,21 @@ color:#38d39f
     .signin-signup {
       width: 100%;
     }
+    .signInBtn{
+      height: 35px;
+      font-size: 1rem;
+    }
     .container1.sign-up-mode .right-panel .image,
     .container1.sign-up-mode .right-panel .content {
       transform: translateY(57px);
     }
     .left-panel .image,
     .left-panel .content {
-      transform: translateY(-34px);
+      transform: translateY(-76px);
     }
   
     form {
-      padding: 0 1.5rem;
+      padding: 0 2.5rem;
     }
   
     .image {
@@ -428,12 +476,12 @@ color:#38d39f
     }
   
     .container1:before {
-      bottom: 72%;
+      bottom: 83%;
       left: 50%;
     }
     .container1.sign-up-mode:before {
-      bottom: 28%;
-      left: 50%;
+      bottom: 24%;
+      left: 32%;
     }
   }
   

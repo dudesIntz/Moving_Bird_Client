@@ -8,19 +8,30 @@
         <div *ngIf="isLoading" style="position: absolute; z-index: 99;">
           <app-loading-spinner></app-loading-spinner>
         </div>
-				<button class="btn transparent signupBtn"> Sign up </button>
-				<div class="form-group nomargin formGrp user">
+        <img style="height:100px" src="../assets/avatar.svg">
+        <div class="form-group formGrp focus">
 					<div class="icon"> <i class="fas fa-user"></i> </div>
 					<div>
             <input 
+            type="name" 
+            class="form-control" 
+            name="name" 
+            placeholder="Enter user name" 
+            ngModel required/> 
+          </div>
+				</div>
+				<div class="form-group formGrp focus">
+					<div class="icon"> <i class="fas fa-envelope"></i> </div>
+					<div>
+            <input 
             type="email" 
-            class="form-control userBox" 
+            class="form-control" 
             name="email" 
             placeholder="Enter user email" 
             ngModel required/> 
           </div>
 				</div>
-				<div class="form-group nomargin formGrp password">
+				<div class="form-group formGrp focus">
 					<div class="icon"> <i class="fas fa-lock"></i> </div>
 					<div>
             <input 
@@ -30,57 +41,76 @@
             name="password"
             ngModel required/> 
           </div>
+        </div>
+        <div class="form-group formGrp focus">
+					<div class="icon"> <i class="fas fa-lock"></i> </div>
+					<div>
+            <input 
+            type="password" 
+            class="form-control passwordBox" 
+            placeholder="Conform Password" 
+            name="password"
+            ngModel required/> 
+          </div>
+        </div>
+        <div class="form-group formGrp focus">
+					<div class="icon"> <i class="fas fa-address-book"></i> </div>
+					<div>
+            <input 
+            type="number" 
+            class="form-control" 
+            placeholder="Mobile Number" 
+            name="number"
+            ngModel required/> 
+          </div>
 				</div>
         <button 
         type="submit" 
-        [disabled]="!signupForm.valid" 
-        class="btn loginBtn btn-block">
+        
+        class="signInBtn">
         Submit 
         <span>&rarr;</span>
         </button>
-        <hr> <a class="fpw" href="#"> Forgot Password?</a> 
+        <a class="fpw" href="#"> Forgot Password?</a> 
       </form>
 			<form #loginForm = 'ngForm' action="#" class="sign-up-form" (ngSubmit)="onSubmit(loginForm)">
         <div class="alert alert-danger alertmsg" *ngIf="error">
           <p style="margin:0;">{{error}}</p>
         </div>
-        <!--<div *ngIf="isLoading" style="position: absolute; z-index: 99;">
+        <!--[disabled]="!signupForm.valid"  <div *ngIf="isLoading" style="position: absolute; z-index: 99;">
           <app-loading-spinner></app-loading-spinner>
         </div>-->
-        <button class="btn transparent signupBtn"> Login </button>
-				<div class="form-group nomargin formGrp user">
-					<div class="icon"> <i class="fas fa-user"></i> </div>
+        <img style="height:100px" src="../assets/avatar.svg">
+				<div class="form-group formGrp focus">
+					<div class="icon"> <i class="fas fa-envelope"></i> </div>
 					<div>
             <input 
-              type="user" 
-              name="email" 
-              class="form-control userBox" 
-              id="user" 
-              placeholder="Enter name" 
-              ngModel required
-            > 
+            type="email" 
+            class="form-control" 
+            name="email" 
+            placeholder="Enter user email" 
+            ngModel required/> 
           </div>
 				</div>
-				<div class="form-group nomargin formGrp password">
-					<div class="icon"> <i class="fas fa-lock"></i></div>
+				<div class="form-group formGrp focus">
+					<div class="icon"> <i class="fas fa-lock"></i> </div>
 					<div>
             <input 
             type="password" 
             class="form-control passwordBox" 
-            id="" 
+            placeholder="Password" 
             name="password"
-            placeholder="Password"
-            ngModel required> 
+            ngModel required/> 
           </div>
-				</div>
+        </div>
         <button 
         type="submit" 
-        class="btn loginBtn btn-block"
+        class="logInBtn"
         [disabled]="!loginForm.valid" >
         Submit 
         <span>&rarr;</span>
       </button>
-        <hr> <a class="fpw" href="#"> Forgot Password?</a> 
+        <a class="fpw" href="#"> Forgot Password?</a> 
       </form>
 		</div>
 	</div>
@@ -89,13 +119,13 @@
 			<div class="content">
 				<h3>New here ?</h3>
 				<p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-				<button class="btn transparent signupBtn" id="sign-up-btn" (click)="onSwitchMode()"> Switch to Login </button>
+				<button class="btn transparent switchBtn" id="sign-up-btn" (click)="onSwitchMode()"> Switch to Login </button>
 			</div> <img src="../assets/register.svg" class="image" alt="" /> </div>
 		<div class="panel right-panel">
 			<div class="content">
 				<h3>One of us ?</h3>
 				<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-				<button class="btn transparent signupBtn" id="sign-in-btn" (click)="onSwitchMode()"> Switch to sign up </button>
+				<button class="btn transparent switchBtn" id="sign-in-btn" (click)="onSwitchMode()"> Switch to sign up </button>
       </div> <img src="../assets/logo.svg" class="image" alt="" /> 
     </div>
 	</div>
